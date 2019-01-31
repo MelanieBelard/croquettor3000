@@ -9,4 +9,4 @@ int getDurationFromPotentiometer(int nPotentiometer){
 	duration = pdMS_TO_TICKS(potentiometerToMs);
 	printf(duration);
 	return duration
-}
+};
