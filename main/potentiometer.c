@@ -2,9 +2,9 @@
 
 #include "potentiometer.h"
 
-int getDurationFromPotentiometer(int nPotentiometer){
-    int potentiometerValue = GetADC(nPotentiometer);
-	int potentiometerToMs = potentiometerValue * 100;
+int getDurationFromPotentiometer(){
+    uint16_t potentiometerValue = adc_read(nPotentiometer);
+	int potentiometerToMs = (unsigned int) potentiometerValue * 100;
 	int duration = pdMS_TO_TICKS(potentiometerToMs);
 	printf(duration);
 	return duration;
