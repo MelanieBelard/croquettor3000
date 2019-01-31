@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <time.h>
 
 #include "config.h"
 #include "led.h"
@@ -16,6 +17,7 @@
 #include "esp_system.h"
 #include "driver/gpio.h"
 #include "servo.h"
+#include "lcd.h"
 
 
 /******************************************************************************
@@ -41,31 +43,28 @@ void app_main(void)
 
     while (true) {
         bool btnState = read_btn(btn);
-        printf("Bouton (bool) : %d \n", btnState);
-        sleep(1);
+        printf("\n");
+        getDurationFromPotentiometer();
 
-        switch_on(red);
-        sleep(1);
-        switch_off(red);
+        srand(time(NULL));
+        int random = rand()%100;
+        ecrireMessage(random);
 
-        sleep(1);
-        switch_on(yellow);
-        sleep(1);
-        switch_off(yellow);
+        int led = red;
 
-        sleep(1);
-        switch_on(green);
-        sleep(1);
-        switch_off(green);
+        if (random >= 0 && random < 20) {
+          led = red;
+        } else if (random >= 20 && random < 40) {
+          led = yellow;
+        } else if (random >= 40) {
+          led = green;
+        }
 
+        switch_on(led);
         sleep(1);
-        switch_on(yellow);
-        sleep(1);
-        switch_off(yellow);
+        switch_off(led);
     }
 
     // int duration = getDurationFromPotentiometer();
     // motorAction(duration);
-
-
 }
