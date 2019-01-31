@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := project_template
+PROJECT_NAME := croquettor3000
 
 include $(IDF_PATH)/make/project.mk
 
