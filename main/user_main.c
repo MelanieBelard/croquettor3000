@@ -47,8 +47,8 @@ void app_main(void)
 
          /* Cette fonction récupère la valeur du
          potentiomètre pour la convertir en duration
-         qui doit déterminer le temps de rotation du
-         moteur pour l'ouverture de la gamelle */
+         qui doit déterminer le temps d'ouverture du
+         servo motor pour l'ouverture de la gamelle */
         getDurationFromPotentiometer();
 
         srand(time(NULL));
@@ -70,6 +70,6 @@ void app_main(void)
         switch_off(led);
 
         printf("\n");
-        
+
     }
 }
