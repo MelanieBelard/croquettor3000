@@ -42,8 +42,13 @@ void app_main(void)
     int servo = GPIO_NUM_12;
 
     while (true) {
-        bool btnState = read_btn(btn);
-        printf("\n");
+
+        bool btn_state = read_btn(btn);
+
+         /* Cette fonction récupère la valeur du
+         potentiomètre pour la convertir en duration
+         qui doit déterminer le temps de rotation du
+         moteur pour l'ouverture de la gamelle */
         getDurationFromPotentiometer();
 
         srand(time(NULL));
@@ -63,8 +68,8 @@ void app_main(void)
         switch_on(led);
         sleep(1);
         switch_off(led);
-    }
 
-    // int duration = getDurationFromPotentiometer();
-    // motorAction(duration);
+        printf("\n");
+        
+    }
 }
