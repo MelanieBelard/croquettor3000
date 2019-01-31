@@ -15,6 +15,7 @@
 #include "potentiometer.h"
 #include "esp_system.h"
 #include "driver/gpio.h"
+#include "servo.h"
 
 
 /******************************************************************************
@@ -37,15 +38,16 @@ void app_main(void)
 
 
     int infrared = GPIO_NUM_14;
-    int motor = GPIO_NUM_12;
+    int servo = GPIO_NUM_12;
 
     bool btnState = read_btn(btn);
 
     printf("%d \n", btnState);
 
 
-    getDurationFromPotentiometer();
+    int duration = getDurationFromPotentiometer();
 
+    motorAction(duration);
     //
     // switch_on(red);
     // switch_off(red);
@@ -55,6 +57,6 @@ void app_main(void)
     //
     // switch_on(yellow);
     // switch_off(yellow);
-    
+
 
 }
