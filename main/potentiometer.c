@@ -8,5 +8,5 @@ int getDurationFromPotentiometer(int nPotentiometer){
 	potentiometerToMs = nPotentiometer * 100;
 	duration = pdMS_TO_TICKS(potentiometerToMs);
 	printf(duration);
-	return duration
+	return duration;
 };
