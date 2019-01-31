@@ -15,6 +15,7 @@
 #include "potentiometer.h"
 #include "esp_system.h"
 #include "driver/gpio.h"
+#include "lcd.h"
 
 
 /******************************************************************************
@@ -57,4 +58,5 @@ void app_main(void)
     // switch_off(yellow);
     
 
+    ecrireMessage(88);
 }
