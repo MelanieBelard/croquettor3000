@@ -5,8 +5,8 @@
 #include "potentiometer.h"
 
 void motorAction(duration){
-  servo.write(90);
-  delay(duration);
-  servo.write(0);
-
+  return;
+  // servo.write(90);
+  // delay(duration);
+  // servo.write(0);
 }

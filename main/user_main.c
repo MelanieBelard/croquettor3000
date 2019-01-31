@@ -26,7 +26,6 @@
 *******************************************************************************/
 void app_main(void)
 {
-    // printf("SDK version:%s\n", esp_get_idf_version());
 
     config();
 
@@ -40,23 +39,33 @@ void app_main(void)
     int infrared = GPIO_NUM_14;
     int servo = GPIO_NUM_12;
 
-    bool btnState = read_btn(btn);
+    while (true) {
+        bool btnState = read_btn(btn);
+        printf("Bouton (bool) : %d \n", btnState);
+        sleep(1);
 
-    printf("%d \n", btnState);
+        switch_on(red);
+        sleep(1);
+        switch_off(red);
 
+        sleep(1);
+        switch_on(yellow);
+        sleep(1);
+        switch_off(yellow);
 
-    int duration = getDurationFromPotentiometer();
+        sleep(1);
+        switch_on(green);
+        sleep(1);
+        switch_off(green);
 
-    motorAction(duration);
-    //
-    // switch_on(red);
-    // switch_off(red);
-    //
-    // switch_on(green);
-    // switch_off(green);
-    //
-    // switch_on(yellow);
-    // switch_off(yellow);
+        sleep(1);
+        switch_on(yellow);
+        sleep(1);
+        switch_off(yellow);
+    }
+
+    // int duration = getDurationFromPotentiometer();
+    // motorAction(duration);
 
 
 }
