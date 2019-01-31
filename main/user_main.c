@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <time.h>
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -29,6 +30,9 @@
 #include "potentiometer.h"
 #include "esp_system.h"
 #include "driver/gpio.h"
+
+#include "lcd.h"
+
 
 #define PWM_0_OUT_IO_NUM   12
 #define PWM_1_OUT_IO_NUM   13
@@ -66,7 +70,6 @@ int16_t phase[4] = {
 *******************************************************************************/
 void app_main(void)
 {
-    // printf("SDK version:%s\n", esp_get_idf_version());
 
     config();
 
@@ -80,9 +83,16 @@ void app_main(void)
     int infrared = GPIO_NUM_14;
     int servo = GPIO_NUM_12;
 
-    bool btnState = read_btn(btn);
+    while (true) {
+        bool btnState = read_btn(btn);
+        printf("\n");
+        getDurationFromPotentiometer();
 
-    printf("%d \n", btnState);
+        srand(time(NULL));
+        int random = rand()%100;
+        ecrireMessage(random);
+
+        int led = red;
 
 
     int duration = getDurationFromPotentiometer();
@@ -94,7 +104,7 @@ void app_main(void)
     pwm_start();
     int16_t count = 0;
 
-    while (1) {
+
         if (count == 20) {
             //channel0, 1 output hight level.
             //channel2, 3 output low level.
@@ -108,19 +118,18 @@ void app_main(void)
 
         count++;
         vTaskDelay(1000 / portTICK_RATE_MS);
+
+        if (random >= 0 && random < 20) {
+          led = red;
+        } else if (random >= 20 && random < 40) {
+          led = yellow;
+        } else if (random >= 40) {
+          led = green;
+        }
+
+
+        switch_on(led);
+        sleep(1);
+        switch_off(led);
     }
-
-
-
-    //
-    // switch_on(red);
-    // switch_off(red);
-    //
-    // switch_on(green);
-    // switch_off(green);
-    //
-    // switch_on(yellow);
-    // switch_off(yellow);
-
-
 }

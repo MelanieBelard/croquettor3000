@@ -7,8 +7,8 @@
 
 
 void nyehehe() {
-  // printf("NYEHEHE HEHEHEHEH HEHEHE!!!\n");
-  gpio_set_level(GPIO_NUM_4, 0);
+//  printf("NYEHEHE HEHEHEHEH HEHEHE!!!\n");
+  gpio_set_level(GPIO_NUM_4, 1);
 }
 
 void config(){
@@ -52,6 +52,5 @@ void config(){
       gpio_config(&btn);
       gpio_isr_handler_add(GPIO_NUM_2, nyehehe, NULL);
 
-
-
+      // gpio_set_level(GPIO_NUM_5, 1);
 }
