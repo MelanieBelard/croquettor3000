@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #include "potentiometer.h"
-#include "freertos.h"
 
 int getDurationFromPotentiometer(int nPotentiometer){
     int potentiometerValue = GetADC(nPotentiometer);

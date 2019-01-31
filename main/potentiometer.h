@@ -3,6 +3,7 @@
 #include "esp_system.h"
 #include "driver/gpio.h"
 #include "config.h"
+#include "freertos/task.h"
 
 
 int getDurationFromPotentiometer(int nPotentiometer);
