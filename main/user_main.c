@@ -56,7 +56,7 @@ void app_main(void)
     //
     // switch_on(yellow);
     // switch_off(yellow);
-    
 
-    ecrireMessage(88);
+    srand(time(NULL));
+    ecrireMessage(rand()%100);
 }
