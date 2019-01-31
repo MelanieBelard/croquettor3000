@@ -14,6 +14,7 @@
 #include "button.h"
 #include "esp_system.h"
 #include "driver/gpio.h"
+#include "lcd.h"
 
 
 /******************************************************************************
@@ -50,4 +51,6 @@ void app_main(void)
 
     switch_on(green);
     switch_off(green);
+
+    ecrireMessage(88);
 }
