@@ -12,7 +12,7 @@
 #include "config.h"
 #include "led.h"
 #include "button.h"
-#include "potentiometre.h"
+#include "potentiometer.h"
 #include "esp_system.h"
 #include "driver/gpio.h"
 
