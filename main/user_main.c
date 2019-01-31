@@ -7,8 +7,14 @@
 */
 
 #include <stdio.h>
+#include <unistd.h>
 
+#include "config.h"
+#include "led.h"
+#include "button.h"
 #include "esp_system.h"
+#include "driver/gpio.h"
+
 
 /******************************************************************************
  * FunctionName : app_main
@@ -18,5 +24,30 @@
 *******************************************************************************/
 void app_main(void)
 {
-    printf("SDK version:%s\n", esp_get_idf_version());
+    // printf("SDK version:%s\n", esp_get_idf_version());
+
+    config();
+
+    int red    = GPIO_NUM_4;
+    int yellow = GPIO_NUM_5;
+    int green  = GPIO_NUM_16;
+
+    int btn    = GPIO_NUM_2;
+
+    // if (!read_btn(btn)) {
+    //   switch_on(red);
+    // }
+    //
+    // if (read_btn(btn)) {
+    //   switch_off(red);
+    // }
+
+    switch_on(red);
+    switch_off(red);
+
+    switch_on(yellow);
+    switch_off(yellow);
+
+    switch_on(green);
+    switch_off(green);
 }
