@@ -35,25 +35,26 @@ void app_main(void)
 
     int btn    = GPIO_NUM_2;
 
+
     int infrared = GPIO_NUM_14;
     int motor = GPIO_NUM_12;
 
-    // if (!read_btn(btn)) {
-    //   switch_on(red);
-    // }
-    //
-    // if (read_btn(btn)) {
-    //   switch_off(red);
-    // }
+    bool btnState = read_btn(btn);
 
-    switch_on(red);
-    switch_off(red);
+    printf("%d \n", btnState);
 
-    switch_on(yellow);
-    switch_off(yellow);
-
-    switch_on(green);
-    switch_off(green);
 
     getDurationFromPotentiometer();
+
+    //
+    // switch_on(red);
+    // switch_off(red);
+    //
+    // switch_on(green);
+    // switch_off(green);
+    //
+    // switch_on(yellow);
+    // switch_off(yellow);
+    
+
 }
