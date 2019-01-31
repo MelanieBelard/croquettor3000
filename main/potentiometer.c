@@ -5,7 +5,7 @@
 #include "config.h"
 
 int getDurationFromPotentiometer(int nPotentiometer){
-    int potentiometerValue = GetADC(PinNumber)
+    int potentiometerValue = GetADC(nPotentiometer)
 	potentiometerToMs = potentiometerValue * 100;
 	duration = pdMS_TO_TICKS(potentiometerToMs);
 	printf(duration);
