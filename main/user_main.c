@@ -34,20 +34,25 @@ void app_main(void)
 
     int btn    = GPIO_NUM_2;
 
+    bool btnState = read_btn(btn);
+
+    printf("%d \n", btnState);
+
     // if (!read_btn(btn)) {
-    //   switch_on(red);
+    //   switch_on(yellow);
     // }
     //
     // if (read_btn(btn)) {
-    //   switch_off(red);
+    //   switch_off(yellow);
     // }
-
-    switch_on(red);
-    switch_off(red);
-
-    switch_on(yellow);
-    switch_off(yellow);
-
-    switch_on(green);
-    switch_off(green);
+    //
+    // switch_on(red);
+    // switch_off(red);
+    //
+    // switch_on(green);
+    // switch_off(green);
+    //
+    // switch_on(yellow);
+    // switch_off(yellow);
+    
 }
